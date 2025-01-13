@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF to Podcast</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>PDF to Podcast</h1>
+    <p>Enter your ChatGPT API key, upload a PDF, set speaker names, and convert to an audio podcast.</p>
+
+    <label for="apiKey">ChatGPT API Key:</label>
+    <input type="password" id="apiKey" placeholder="Enter your API key" />
+
+    <label for="pdfFile">Upload PDF:</label>
+    <input type="file" id="pdfFile" accept="application/pdf" />
+
+    <div class="speaker-group">
+      <div>
+        <label for="speakerOneName">Speaker One Name:</label>
+        <input type="text" id="speakerOneName" placeholder="Speaker One Name" value="Alex" />
+        <label for="speakerOneVoice">Speaker One Voice:</label>
+        <select id="speakerOneVoice">
+          <option>Alloy</option>
+          <option>Echo</option>
+          <option>Fable</option>
+          <option>Onyx</option>
+          <option>Nova</option>
+          <option>Shimmer</option>
+        </select>
+      </div>
+      <div>
+        <label for="speakerTwoName">Speaker Two Name:</label>
+        <input type="text" id="speakerTwoName" placeholder="Speaker Two Name" value="Taylor" />
+        <label for="speakerTwoVoice">Speaker Two Voice:</label>
+        <select id="speakerTwoVoice">
+          <option>Alloy</option>
+          <option>Echo</option>
+          <option>Fable</option>
+          <option>Onyx</option>
+          <option selected>Nova</option>
+          <option>Shimmer</option>
+        </select>
+      </div>
+    </div>    
+
+    <button id="convertButton">Convert to Podcast</button>
+
+    <h2>Generated Text</h2>
+    <textarea id="generatedText" readonly></textarea>
+
+    <h2>Audio Playback</h2>
+    <audio id="audioPlayer" controls></audio>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
