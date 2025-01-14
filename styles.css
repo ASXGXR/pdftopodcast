@@ -21,6 +21,10 @@ body {
 }
 
 .container {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+
   max-width: 800px;
   margin: 30px auto;
   padding: 20px;
@@ -168,6 +172,9 @@ audio {
 /* Speaker Inputs */
 .speaker-wrapper {
   display: flex;
+
+  display: none;
+
   gap: 32px;
   justify-content: space-between;
 }
