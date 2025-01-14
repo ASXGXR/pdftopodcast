@@ -9,50 +9,75 @@
 <body>
   <div class="container">
     <h1>PDF to Podcast</h1>
-    <p>Enter your ChatGPT API key, upload a PDF, set speaker names, and convert to an audio podcast.</p>
+    <p>Enter your ChatGPT API key, upload a PDF, and watch the magic happen!</p>
 
     <label for="apiKey">ChatGPT API Key:</label>
     <input type="password" id="apiKey" placeholder="Enter your API key" />
 
-    <label for="pdfFile">Upload PDF:</label>
-    <input type="file" id="pdfFile" accept="application/pdf" />
+    <!-- File Drop -->
+    <div class="pdf-dropzone" id="dropzone">
+      <label for="pdfFile" class="dropzone-label">Drop your PDF here or click to upload</label>
+      <input type="file" id="pdfFile" accept="application/pdf" />
+    </div>
+    <p id="fileName" class="file-name"></p>    
 
-    <div class="speaker-group">
-      <div>
-        <label for="speakerOneName">Speaker One Name:</label>
-        <input type="text" id="speakerOneName" placeholder="Speaker One Name" value="Alex" />
-        <label for="speakerOneVoice">Speaker One Voice:</label>
-        <select id="speakerOneVoice">
-          <option>Alloy</option>
-          <option>Echo</option>
-          <option>Fable</option>
-          <option>Onyx</option>
-          <option>Nova</option>
-          <option>Shimmer</option>
-        </select>
+    <div class="speaker-wrapper">
+      <!-- Speaker 1 -->
+      <div class="speaker-group">
+        <h3>Speaker 1</h3>
+        <div class="input-group">
+          <div class="input">
+            <label for="speakerOneName">Name:</label>
+            <input type="text" id="speakerOneName" placeholder="Speaker One Name" value="Alex" />
+          </div>
+          <div class="input dropdown">
+            <label for="speakerOneVoice">Voice:</label>
+            <select id="speakerOneVoice">
+              <option>Alloy</option>
+              <option>Echo</option>
+              <option>Fable</option>
+              <option>Onyx</option>
+              <option>Nova</option>
+              <option>Shimmer</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <div>
-        <label for="speakerTwoName">Speaker Two Name:</label>
-        <input type="text" id="speakerTwoName" placeholder="Speaker Two Name" value="Taylor" />
-        <label for="speakerTwoVoice">Speaker Two Voice:</label>
-        <select id="speakerTwoVoice">
-          <option>Alloy</option>
-          <option>Echo</option>
-          <option>Fable</option>
-          <option>Onyx</option>
-          <option selected>Nova</option>
-          <option>Shimmer</option>
-        </select>
+    
+      <!-- Speaker 2 -->
+      <div class="speaker-group">
+        <h3>Speaker 2</h3>
+        <div class="input-group">
+          <div class="input">
+            <label for="speakerTwoName">Name:</label>
+            <input type="text" id="speakerTwoName" placeholder="Speaker Two Name" value="Taylor" />
+          </div>
+          <div class="input dropdown">
+            <label for="speakerTwoVoice">Voice:</label>
+            <select id="speakerTwoVoice">
+              <option>Alloy</option>
+              <option>Echo</option>
+              <option>Fable</option>
+              <option>Onyx</option>
+              <option selected>Nova</option>
+              <option>Shimmer</option>
+            </select>
+          </div>
+        </div>
       </div>
-    </div>    
+    </div>
 
     <button id="convertButton">Convert to Podcast</button>
 
-    <h2>Generated Text</h2>
-    <textarea id="generatedText" readonly></textarea>
+    <div class="output-wrapper">
 
-    <h2>Audio Playback</h2>
-    <audio id="audioPlayer" controls></audio>
+      <h2>Generated Text</h2>
+      <textarea id="generatedText" readonly></textarea>
+
+      <h2>Audio Playback</h2>
+      <audio id="audioPlayer" controls></audio>
+
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>

@@ -46,6 +46,9 @@ convertButton.addEventListener("click", async () => {
 
   generatedTextArea.value = cleanedText;
 
+  // Show Hidden Sections
+  document.querySelector('.output-wrapper').style.display = 'block';
+
   const lines = cleanedText.split("\n").map(line => line.trim()).filter(Boolean);
   const audioRequests = lines.map(line => {
     const useVoice = line.startsWith(speakerTwoName) ? speakerTwoVoice : speakerOneVoice;
@@ -202,3 +205,29 @@ function writeString(view, offset, string) {
     view.setUint8(offset + i, string.charCodeAt(i));
   }
 }
+
+
+
+
+// File Dropping
+
+const pdfInput = document.getElementById('pdfFile');
+const dropzone = document.getElementById('dropzone');
+const fileNameDisplay = document.getElementById('fileName');
+
+pdfInput.addEventListener('change', (event) => {
+  const file = event.target.files[0]; // Get the first selected file
+  if (file) {
+    // Update the dropzone style to indicate a file has been added
+    dropzone.classList.add('file-added');
+
+    // Display the file name below the dropzone
+    fileNameDisplay.textContent = `Selected file: ${file.name}`;
+    fileNameDisplay.classList.add('visible');
+  } else {
+    // If no file is selected, reset the dropzone style
+    dropzone.classList.remove('file-added');
+    fileNameDisplay.textContent = '';
+    fileNameDisplay.classList.remove('visible');
+  }
+});

@@ -1,6 +1,19 @@
-/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&family=Mochiy+Pop+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@300;400;500;600;700&family=Livvic:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-font: 'M PLUS 2', sans-serif;
+  --heading-font: 'Mitr', sans-serif;
+  --accent-color: #4a90e2;
+  --accent-hover: #357abd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--primary-font);
   background: #f9f9f9;
   color: #333;
   margin: 0;
@@ -17,17 +30,32 @@ body {
   overflow: hidden;
 }
 
+h1, h2, p {
+  color: #333;
+}
+
 h1 {
+  font-family: var(--heading-font);
   font-size: 2rem;
   text-align: center;
-  color: #4a90e2;
+  color: var(--accent-color);
   margin-bottom: 10px;
 }
 
 h2 {
   font-size: 1.2rem;
   margin: 20px 0 10px;
-  color: #333;
+}
+
+h3 {
+  margin: 0; padding: 16px 0px;
+  padding-bottom: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+label {
+  text-align: center;
 }
 
 p {
@@ -44,9 +72,9 @@ label {
   font-size: 0.9rem;
 }
 
-input[type="password"],
-input[type="file"],
+input,
 textarea,
+select,
 button {
   width: 100%;
   padding: 10px;
@@ -57,29 +85,25 @@ button {
   box-sizing: border-box;
 }
 
-input[type="file"] {
-  padding: 5px;
-}
-
 textarea {
   height: 250px;
   resize: vertical;
-  font-size: 1rem;
 }
 
 button {
-  background: #4a90e2;
+  background: var(--accent-color);
   color: #fff;
   font-weight: bold;
-  border: none;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-  background: #357abd;
+  background: var(--accent-hover);
+}
+
+button:active {
+  transform: translateY(1px);
 }
 
 audio {
@@ -93,25 +117,122 @@ audio {
   margin-bottom: 20px;
 }
 
-/* Speaker Inputs - Side by Side Layout */
-.speaker-group {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.speaker-group > div {
-  width: 48%;
-}
-
-.speaker-group input[type="text"],
-.speaker-group select {
+.pdf-dropzone {
   width: 100%;
-  padding: 8px;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
+  height: 30vh;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  transition: height 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
+  position: relative;
 }
 
+.pdf-dropzone.file-added {
+  height: 64px;
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+}
+
+.pdf-dropzone input[type="file"] {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dropzone-label {
+  font-size: 16px;
+  color: #666;
+  pointer-events: none;
+}
+
+.file-name {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  display: none;
+  transition: opacity 0.5s ease;
+}
+
+.file-name.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* Speaker Inputs */
+.speaker-wrapper {
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+}
+
+.speaker-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  gap: 16px;
+  display: flex;
+}
+
+.input {
+  width: 100%;
+}
+
+.dropdown {
+  width: 80%;
+}
+
+.speaker-group label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.speaker-group input,
+.speaker-group select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+
+#convertButton {
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  color: #fff;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+}
+
+#convertButton:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+#convertButton:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.output-wrapper {
+  display: none;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .container {
     padding: 15px;
@@ -127,9 +248,11 @@ audio {
 
   .speaker-group {
     flex-direction: column;
+    gap: 15px;
   }
 
-  .speaker-group > div {
-    width: 100%;
+  .speaker-wrapper {
+    flex-direction: column;
+    gap: 15px;
   }
 }
