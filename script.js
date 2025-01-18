@@ -4,15 +4,11 @@ const pdfFileInput = document.getElementById("pdfFile");
 const convertButton = document.getElementById("convertButton");
 const generatedTextArea = document.getElementById("generatedText");
 const audioPlayer = document.getElementById("audioPlayer");
-const speakerOneNameInput = document.getElementById("speakerOneName");
-const speakerOneVoiceSelect = document.getElementById("speakerOneVoice");
-const speakerTwoNameInput = document.getElementById("speakerTwoName");
-const speakerTwoVoiceSelect = document.getElementById("speakerTwoVoice");
 const pdfInput = document.getElementById("pdfFile");
 const dropzone = document.getElementById("dropzone");
 const fileNameDisplay = document.getElementById("fileName");
 
-// ===== Get API Key =====
+// ===== Getting API Key =====
 window.addEventListener("load", () => {
   const savedKey = localStorage.getItem("chatGPTApiKey");
   if (savedKey) apiKeyInput.value = savedKey;
@@ -48,10 +44,13 @@ convertButton.addEventListener("click", async () => {
   }
 
   // Speaker details
-  const speakerOneName = speakerOneNameInput.value.trim() || "Alex";
-  const speakerTwoName = speakerTwoNameInput.value.trim() || "Taylor";
-  const speakerOneVoice = speakerOneVoiceSelect.value.toLowerCase() || "alloy";
-  const speakerTwoVoice = speakerTwoVoiceSelect.value.toLowerCase() || "nova";
+  const speakerOneName = "Alex";
+  const speakerTwoName = "Taylor";
+  const speakerOneVoice = "alloy";
+  const speakerTwoVoice = "nova";
+
+  // Show the loading spinner
+  document.getElementById("loadingSpinner").style.display = "flex";
 
   try {
     // Extract PDF text and create podcast conversation
@@ -87,6 +86,10 @@ convertButton.addEventListener("click", async () => {
 
     audioPlayer.src = URL.createObjectURL(mergedAudio);
     audioPlayer.play();
+    
+    // Hide the loading spinner
+    document.getElementById("loadingSpinner").style.display = "none";
+
   } catch (error) {
     console.error("Error during conversion:", error);
     alert("An error occurred during the conversion process.");

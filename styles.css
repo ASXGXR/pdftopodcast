@@ -4,8 +4,10 @@
 :root {
   --primary-font: 'M PLUS 2', sans-serif;
   --heading-font: 'Mitr', sans-serif;
+  --primary-color: #357abd;
   --accent-color: #4a90e2;
   --accent-hover: #357abd;
+  --side-padding: 12vw;
 }
 
 * {
@@ -20,13 +22,17 @@ body {
   padding: 0;
 }
 
+.main-wrapper {
+  padding: 6vmin var(--side-padding);
+}
+
 .container {
   gap: 8px;
   display: flex;
   flex-direction: column;
 
   max-width: 800px;
-  margin: 30px auto;
+  margin: 0px auto;
   padding: 20px;
   background: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -169,50 +175,6 @@ audio {
   opacity: 1;
 }
 
-/* Speaker Inputs */
-.speaker-wrapper {
-  display: flex;
-
-  display: none;
-
-  gap: 32px;
-  justify-content: space-between;
-}
-
-.speaker-group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.input-group {
-  gap: 16px;
-  display: flex;
-}
-
-.input {
-  width: 100%;
-}
-
-.dropdown {
-  width: 80%;
-}
-
-.speaker-group label {
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-.speaker-group input,
-.speaker-group select {
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-}
-
 
 #convertButton {
   background: linear-gradient(45deg, #6a11cb, #2575fc);
@@ -261,5 +223,55 @@ audio {
   .speaker-wrapper {
     flex-direction: column;
     gap: 15px;
+  }
+}
+
+
+.main-icon {
+  position: absolute;
+  border-radius: 50%;
+  box-sizing: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2vmin;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 3vmin;
+  height: 3vmin;
+}
+.main-icon img {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+
+.loading-spinner {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+.spinner {
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  border-top: 6px solid #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

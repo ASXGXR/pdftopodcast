@@ -7,78 +7,101 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>PDF to Podcast</h1>
-    <p>Enter your ChatGPT API key, upload a PDF, and watch the magic happen!</p>
 
-    <label for="apiKey">ChatGPT API Key:</label>
-    <input type="password" id="apiKey" placeholder="Enter your API key" />
-
-    <!-- File Drop -->
-    <div class="pdf-dropzone" id="dropzone">
-      <label for="pdfFile" class="dropzone-label">Drop your PDF here or click to upload</label>
-      <input type="file" id="pdfFile" accept="application/pdf" />
+  <nav>
+    <div class="nav-logo">
+      <img src="logo.svg" alt="Logo">PDFtoPod
     </div>
-    <p id="fileName" class="file-name"></p>    
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+  <style>
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px var(--side-padding);
+      align-items: center;
+      box-shadow: 0 0 0 #0000, 0 0 0 #0000, 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    }
+    .nav-logo {
+      gap: 16px;
+      font-weight: 600;
+      font-size: 3vmin;
+      color: var(--accent-color);
+      font-family: var(--heading-font);
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .nav-logo img {
+      width: 50px;
+      height: 50px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 3vw;
+    }
+    nav a {
+      transition: color 0.3s ease;
+      padding: 12px;
+      margin: -12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: var(--primary-color)
+    }
+  </style>
 
-    
-    <div class="speaker-wrapper">
-      <!-- Speaker 1 -->
-      <div class="speaker-group">
-        <h3>Speaker 1</h3>
-        <div class="input-group">
-          <div class="input">
-            <label for="speakerOneName">Name:</label>
-            <input type="text" id="speakerOneName" placeholder="Speaker One Name" value="Alex" />
-          </div>
-          <div class="input dropdown">
-            <label for="speakerOneVoice">Voice:</label>
-            <select id="speakerOneVoice">
-              <option>Alloy</option>
-              <option>Echo</option>
-              <option>Fable</option>
-              <option>Onyx</option>
-              <option>Nova</option>
-              <option>Shimmer</option>
-            </select>
-          </div>
-        </div>
+
+  <div class="main-wrapper">
+
+    <div class = "main-icon">
+      <img src="settings.svg">
+    </div>
+
+    <div class="container">
+      <h1>PDF to Podcast</h1>
+      <p>Enter your ChatGPT API key, upload a PDF, and watch the magic happen!</p>
+
+      <label for="apiKey">ChatGPT API Key:</label>
+      <input type="password" id="apiKey" placeholder="Enter your API key" />
+
+      <!-- File Drop -->
+      <div class="pdf-dropzone" id="dropzone">
+        <label for="pdfFile" class="dropzone-label">Drop your PDF here or click to upload</label>
+        <input type="file" id="pdfFile" accept="application/pdf" />
       </div>
-    
-      <!-- Speaker 2 -->
-      <div class="speaker-group">
-        <h3>Speaker 2</h3>
-        <div class="input-group">
-          <div class="input">
-            <label for="speakerTwoName">Name:</label>
-            <input type="text" id="speakerTwoName" placeholder="Speaker Two Name" value="Taylor" />
-          </div>
-          <div class="input dropdown">
-            <label for="speakerTwoVoice">Voice:</label>
-            <select id="speakerTwoVoice">
-              <option>Alloy</option>
-              <option>Echo</option>
-              <option>Fable</option>
-              <option>Onyx</option>
-              <option selected>Nova</option>
-              <option>Shimmer</option>
-            </select>
-          </div>
-        </div>
+      <p id="fileName" class="file-name"></p>    
+
+      <!-- <option>Alloy</option>
+      <option>Echo</option>
+      <option>Fable</option>
+      <option>Onyx</option>
+      <option>Nova</option>
+      <option>Shimmer</option> -->
+
+      <button id="convertButton">Convert to Podcast</button>
+
+      <!-- Loading animation -->
+      <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+      </div>
+
+      <!-- GPT Output -->
+      <div class="output-wrapper">
+        <h2>Generated Text</h2>
+        <textarea id="generatedText" readonly></textarea>
+        <h2>Audio Playback</h2>
+        <audio id="audioPlayer" controls></audio>
       </div>
     </div>
 
-    <button id="convertButton">Convert to Podcast</button>
-
-    <div class="output-wrapper">
-
-      <h2>Generated Text</h2>
-      <textarea id="generatedText" readonly></textarea>
-
-      <h2>Audio Playback</h2>
-      <audio id="audioPlayer" controls></audio>
-
-    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
