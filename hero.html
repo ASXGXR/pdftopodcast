@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF to Podcast</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hero.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <script src="nav/nav.js"></script>
+
+  <div class="hero-wrapper">
+
+    <h1>Transform Your PDFs into Podcasts in Seconds</h1>
+    <h3>Seamlessly convert PDFs into engaging audio with seemless AI voices. Perfect for your upcoming exams.</h3>
+
+
+    <!-- File Drop -->
+    <div class="pdf-dropzone" id="dropzone">
+      <label for="pdfFile" class="dropzone-label">Drop your PDF here or click to upload</label>
+      <input type="file" id="pdfFile" accept="application/pdf" />
+    </div>
+
+    <div class="cta-btns">
+      <button class="main-cta">Get Full Access</button>
+      <button class="sub-cta">Try For Free</button>
+    </div>
+
+  </div>
+
+
+  <div class="hero-wrapper">
+
+
+    <section class="pricing-section">
+      <h2 class="pricing-header">Podcasts that help,<br> start with the right plan</h2>
+      <div class="toggle">
+        <button class="toggle-btn active">Lifetime <span>(Save 75%)</span></button>
+        <button class="toggle-btn">Monthly</button>
+      </div>
+      <div class="pricing-container">
+        <!-- Free Plan -->
+        <div class="pricing-card">
+          <h2 class="plan-title">FREE</h2>
+          <p class="plan-description">Get started with basic features.</p>
+          <p class="price">$0<span>/ month</span></p>
+          <p class="words-limit">5 Podcasts per month</p>
+          <ul class="features-list">
+            <li>✔ 5 Free Podcast Conversions</li>
+            <li>✔ Uses GPT-3</li>
+          </ul>
+          <button class="plan-btn current">Current Plan</button>
+        </div>
+        <!-- Essential Plan -->
+        <div class="pricing-card">
+          <h2 class="plan-title">ESSENTIAL</h2>
+          <p class="plan-description">Upgrade for unlimited access.</p>
+          <p class="price">$3.99<span>/ month</span></p>
+          <p class="billing">Billed per month</p>
+          <p class="words-limit">Unlimited, GPT-4 Podcasts</p>
+          <ul class="features-list">
+            <li>✔ Uses Advanced GPT-4</li>
+            <li>✔ Unlimited Podcasts</li>
+            <li>✔ Ace Your Tests</li>
+            <li>✔ Cancel Anytime</li>
+          </ul>
+          <button class="plan-btn">Choose Plan</button>
+        </div>
+        <!-- Premium Plan -->
+        <div class="pricing-card most-popular">
+          <h2 class="plan-title">LIFETIME <span class="badge">MOST POPULAR</span></h2>
+          <p class="plan-description">Pay once and keep forever.</p>
+          <p class="price">$10.99<span>once</span></p>
+          <p class="billing">Save $35 on first year, compared to Essential</p>
+          <p class="words-limit">Unlimited Podcasts, Always</p>
+          <ul class="features-list">
+            <li>✔ All Features of Essential</li>
+            <li>✔ Never Lose Access</li>
+            <li>✔ Pay Now, Keep Forever</li>
+          </ul>
+          <button class="plan-btn">Choose Plan</button>
+        </div>
+      </div>
+    </section>
+    
+
+  </div>  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
