@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF to Podcast</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <script src="nav/nav.js"></script>
+
+  <!-- Main Wrapper -->
+  <div class="main-wrapper">
+
+    <div class = "main-icon">
+      <img src="settings.svg">
+    </div>
+
+    <div class="container">
+
+      <label for="apiKey">ChatGPT API Key:</label>
+      <input type="password" id="apiKey" placeholder="Enter your API key" />
+
+      <!-- File Drop -->
+      <div class="pdf-dropzone" id="dropzone">
+        <label for="pdfFile" class="dropzone-label">Drop your PDF here or click to upload</label>
+        <input type="file" id="pdfFile" accept="application/pdf" />
+      </div>
+      <p id="fileName" class="file-name"></p>    
+
+      <!-- <option>Alloy</option>
+      <option>Echo</option>
+      <option>Fable</option>
+      <option>Onyx</option>
+      <option>Nova</option>
+      <option>Shimmer</option> -->
+
+      <button id="convertButton">Convert to Podcast</button>
+
+      <!-- Loading animation -->
+      <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+      </div>
+
+      <!-- GPT Output -->
+      <div class="output-wrapper">
+        <h2>Generated Text</h2>
+        <textarea id="generatedText" readonly></textarea>
+        <h2>Audio Playback</h2>
+        <audio id="audioPlayer" controls></audio>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

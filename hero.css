@@ -120,6 +120,7 @@
 }
 
 .plan-description {
+  max-width: 85%;
   font-size: 0.9rem;
   margin-bottom: 20px;
 }
