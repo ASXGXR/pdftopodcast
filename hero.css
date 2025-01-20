@@ -1,5 +1,7 @@
+/* hero.css */
+
 .hero-wrapper {
-    min-height: calc(100vh - 125px);
+    min-height: calc(100vh - 88px);
     justify-content: center;
     gap: 4vmin;
     display: flex;
@@ -39,138 +41,144 @@
         background-position: 0% 50%;
     }
 }
-  
+
+.pricing-wrapper {
+  margin-bottom: var(--side-padding);
+}
 
 .pricing-section {
-    padding: 40px 20px;
-    text-align: center;
-  }
-  
-  .pricing-header {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .toggle {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 40px;
-  }
-  
-  .toggle-btn {
-    color: #333333ab;
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    background-color: #fff;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .toggle-btn.active {
-    background-color: #6e48aa;
-    color: #fff;
-  }
-  
-  .pricing-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .pricing-card {
-    background: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .most-popular {
-    border: 2px solid #6e48aa;
-  }
-  
-  .badge {
-    display: inline-block;
-    background-color: #6e48aa;
-    color: #fff;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    margin-left: 5px;
-  }
-  
-  .plan-title {
-    font-size: 1.5rem;
-    margin: 0 0 10px 0;
-  }
-  
-  .plan-description {
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-  }
-  
-  .price {
-    font-size: 2rem;
-    margin: 10px 0;
-  }
-  
-  .price span {
-    font-size: 0.9rem;
-    color: #888;
-  }
-  
-  .billing {
-    font-size: 0.9rem;
-    color: green;
-    margin-bottom: 20px;
-  }
-  
-  .words-limit {
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .features-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-    text-align: left;
-  }
-  
-  .features-list li {
-    margin: 5px 0;
-  }
-  
-  .plan-btn {
-    padding: 10px 20px;
-    background-color: #6e48aa;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .plan-btn:hover {
-    background-color: #543078;
-  }
-  
-  .current {
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
-  }
-  .current:hover {
-    background: #ccc;
-  }
+  gap: 36px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 
-  h2 {
-    line-height: 150%;
-  }
+.pricing-header {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.toggle {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.toggle-btn {
+  color: #333333ab;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.toggle-btn.active {
+  background-color: #6e48aa;
+  color: #fff;
+}
+
+.pricing-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pricing-card {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.most-popular {
+  border: 2px solid #6e48aa;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #6e48aa;
+  color: #fff;
+  padding: 0px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.plan-title {
+  gap: 10px;
+  display: flex;
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+}
+
+.plan-description {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.price span {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.billing {
+  font-size: 0.9rem;
+  color: green;
+  margin-bottom: 20px;
+}
+
+.words-limit {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+.features-list li {
+  margin: 5px 0;
+}
+
+.plan-btn {
+  padding: 10px 20px;
+  background-color: #6e48aa;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.plan-btn:hover {
+  background-color: #543078;
+}
+
+.current {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+.current:hover {
+  background: #ccc;
+}
+
+h2 {
+  line-height: 140%;
+}
